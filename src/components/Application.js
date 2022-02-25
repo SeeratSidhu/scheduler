@@ -17,9 +17,20 @@ export default function Application() {
   })
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
-  const appointmentArray = dailyAppointments.map(appointment => <Appointment key={appointment.id} {...appointment}/>);
+  const schedule = dailyAppointments.map(appointment => {
+
+    const interview = getInterview(state, appointment.interview);
+    
+    return (<Appointment 
+    key={appointment.id} 
+    {...appointment}
+    />)
+  });
+  
+  
   const setDay = (day) => setState({...state, day});
   // const setDays = (days) => setState(prev => ({...prev, days}));
+
 
   useEffect(() => {
     Promise.all([
@@ -55,7 +66,7 @@ export default function Application() {
         />
       </section>
       <section className="schedule">
-        {appointmentArray}
+        {schedule}
         <Appointment key="last" time="5pm" />
       </section>
     </main>
