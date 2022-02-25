@@ -55,13 +55,16 @@ export default function Application() {
   })
 
   const appointmentArray = appointments.map(appointment => <Appointment key={appointment.id} {...appointment}/>);
-  
+  const setDay = (day) => setState({...state, day});
+  const setDays = (days) => setState(prev => ({...prev, days}));
+
   useEffect(() => {
     axios.get("/api/days")
       .then(response => { 
         setDays([...response.data]);
       })
   }, []);
+
 
   return (
     <main className="layout">
