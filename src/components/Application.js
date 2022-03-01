@@ -20,7 +20,13 @@ export default function Application() {
   const interviewers = getInterviewersForDay(state, state.day);
   
   function bookInterview(id, interview) {
-    console.log(id, interview);
+    //overwrite the existing interview object with the interview from argument
+    const appointment = {...state.appointments[id], interview: { ...interview}};
+    //update appointments object with the new appointment
+    const appointments = {...state.appointments, [id]: appointment}
+
+    setState({...state, appointments})
+
   }
   const schedule = dailyAppointments.map(appointment => {
 
