@@ -33,6 +33,11 @@ export default function Application() {
       .catch(err => console.log(err));
 
   }
+
+  function cancelInterview(id) {
+    console.log("Appointment ID to cancel ", id);
+  }
+
   const schedule = dailyAppointments.map(appointment => {
 
     const interview = getInterview(state, appointment.interview);
@@ -44,6 +49,7 @@ export default function Application() {
     interview={interview}
     interviewers={interviewers}
     bookInterview={bookInterview}
+    cancelInterview={cancelInterview}
     />)
   });
 
