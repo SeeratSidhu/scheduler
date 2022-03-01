@@ -25,7 +25,12 @@ export default function Application() {
     //update appointments object with the new appointment
     const appointments = {...state.appointments, [id]: appointment}
 
-    setState({...state, appointments})
+    
+    return axios.put(`/api/appointments/${id}`, {interview})
+    .then((response) => {
+      return setState({...state, appointments});
+      })
+      .catch(err => console.log(err));
 
   }
   const schedule = dailyAppointments.map(appointment => {
