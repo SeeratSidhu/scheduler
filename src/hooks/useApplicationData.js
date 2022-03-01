@@ -19,21 +19,19 @@ const useApplicationData = () => {
   }
 
   function bookInterview(id, interview) {
+
     //overwrite the existing interview object with the interview from argument
     const appointment = {...state.appointments[id], interview: { ...interview}};
+    
     //update appointments object with the new appointment
     const appointments = {...state.appointments, [id]: appointment}
     
-
     return axios.put(`/api/appointments/${id}`, {interview})
     .then((response) => {
       return setState({...state, appointments});
     })
     .then(data => {
       
-      // const day = {...state.days[selectedDay], spots};
-      // const daysCopy = [...state.days];
-      // daysCopy.splice(selectedDay, 1, day);
       
       return setState((prev) => {
         const {spots, selectedDay} = findRemainingSpots(id, prev);
@@ -47,8 +45,12 @@ const useApplicationData = () => {
             ...prev.days.slice(selectedDay + 1)
           ]
         }});
-    })
 
+        // const day = {...state.days[selectedDay], spots};
+        // const daysCopy = [...state.days];
+        // daysCopy.splice(selectedDay, 1, day);
+    })
+      
   }
 
   function cancelInterview(id) {
