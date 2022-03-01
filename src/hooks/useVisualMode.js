@@ -6,14 +6,13 @@ const useVisualMode = (initial) => {
 
 
   const transition = (newMode, replace = false) => {
+    setMode(newMode); 
+    
     if (replace) {
-      const newHistory = history;
-      newHistory.pop();
-      setHistory(newHistory);
+      return setHistory(prev => ([...prev.slice(0, prev.length-1), newMode]));
     }
     
-    setMode(newMode); 
-    setHistory([...history, newMode]);
+    setHistory(prev => ([...prev, newMode]));
   };
 
   const back = () => {
