@@ -27,7 +27,7 @@ const useApplicationData = () => {
 
     return axios.put(`/api/appointments/${id}`, {interview})
     .then((response) => {
-      return setState((prev) => ({...prev, appointments}));
+      return setState({...state, appointments});
     })
     .then(data => {
       
@@ -37,7 +37,6 @@ const useApplicationData = () => {
       
       return setState((prev) => {
         const {spots, selectedDay} = findRemainingSpots(id, prev);
-        console.log(spots)
         return {...prev, 
           days: [
             ...prev.days.slice(0, selectedDay),
@@ -61,14 +60,9 @@ const useApplicationData = () => {
         return setState({...state, appointments});
       })
       .then(data => {
-      
-        // const day = {...state.days[selectedDay], spots};
-        // const daysCopy = [...state.days];
-        // daysCopy.splice(selectedDay, 1, day);
         
         return setState((prev) => {
           const {spots, selectedDay} = findRemainingSpots(id, prev);
-          console.log(spots)
           return {...prev, 
             days: [
               ...prev.days.slice(0, selectedDay),
