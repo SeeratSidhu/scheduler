@@ -1,5 +1,18 @@
 # Interview Scheduler
 
+
+## Description
+
+A React application that allows users to book and cancel interviews using latest tools and techniques. It combines a concise API with a WebSocket server to build a realtime experience. 
+
+## Link to Live Site
+[Netlify interview scheduler link](https://hardcore-euclid-02815a.netlify.app/)
+
+## Screenshots
+
+!["Create Appointment"](url)
+!["Delete Appointment"](url)
+
 ## Setup
 
 Install dependencies with `npm install`.
@@ -21,3 +34,12 @@ npm test
 ```sh
 npm run storybook
 ```
+## Dependencies
+
+- react
+
+- react-dom
+
+- react-test-renderer
+
+- axios
