@@ -10,8 +10,8 @@ A React application that allows users to book and cancel interviews using latest
 
 ## Screenshots
 
-!["Create Appointment"](url)
-!["Delete Appointment"](url)
+!["Create Appointment"](https://github.com/SeeratSidhu/scheduler/blob/master/docs/Create-interview.png?raw=true)
+!["Delete Appointment"](https://github.com/SeeratSidhu/scheduler/blob/master/docs/cancel-interview.png?raw=true)
 
 ## Setup
 
