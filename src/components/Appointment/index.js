@@ -27,10 +27,6 @@ export default function Appointment(props) {
   
   const save = (name, interviewer) => {
 
-    if(!interviewer) {
-      return transition(ERROR_SAVE);
-    }
-
     const interview = {
       student: name,
       interviewer
